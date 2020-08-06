@@ -29,3 +29,11 @@ variable "key_name" {
   type    = string
   default = "ee_key"
 }
+variable "public_key_path" {
+  type    = string
+  default = "/root/.ssh/id_rsa.pub"
+}
+variable "private_key_path" {
+  type    = string
+  default = "/root/.ssh/id_rsa"
+}

@@ -44,9 +44,33 @@ resource "null_resource" "dev-hosts" {
       "sudo amazon-linux-extras install ansible2 -y",
       "ansible-galaxy install geerlingguy.java",
       "ansible-galaxy install geerlingguy.jenkins",
+      "ansible-galaxy install geerlingguy.docker",
       "echo '${data.template_file.ansible_inventory.rendered}' > /home/ec2-user/.ansible/hosts",
-      "ansible all -m ping -i /home/ec2-user/.ansible/hosts",
+      "ansible all -m ping -i /home/ec2-user/.ansible/hosts"
+    ]
+  }
+  provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      host        = aws_instance.public_server.public_ip
+      user        = var.ssh_user_name
+      private_key = file(var.private_key_path)
+      timeout     = var.ssh_time_out
+    }
+    inline = [
       "ansible-playbook /home/ec2-user/.ansible/jenkins/playbook-jenkins.yaml -i /home/ec2-user/.ansible/hosts"
+    ]
+  }
+  provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      host        = aws_instance.public_server.public_ip
+      user        = var.ssh_user_name
+      private_key = file(var.private_key_path)
+      timeout     = var.ssh_time_out
+    }
+    inline = [
+      "ansible-playbook /home/ec2-user/.ansible/docker/playbook-docker.yaml -i /home/ec2-user/.ansible/hosts"
     ]
   }
 }

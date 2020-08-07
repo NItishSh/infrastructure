@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  vars:
+    docker_users:
+      - ec2-user
+  roles:
+    - geerlingguy.docker

@@ -5,7 +5,28 @@
     jenkins_hostname: localhost
     java_packages:
       - java-1.8.0-openjdk
-
+    jenkins_plugins:
+      - cloudbees-folder
+      - antisamy-markup-formatter
+      - build-timeout
+      - credentials-binding
+      - timestamper
+      - ws-cleanup
+      - ant
+      - gradle
+      - workflow-aggregator
+      - github-organization-folder
+      - pipeline-stage-view
+      - git
+      - subversion
+      - ssh-slaves
+      - matrix-auth
+      - pam-auth
+      - ldap
+      - email-ext
+      - mailer
+    jenkins_plugins_install_dependencies: true
+    jenkins_plugins_state: present 
   roles:
     - role: geerlingguy.java
     - role: geerlingguy.jenkins

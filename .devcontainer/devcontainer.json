@@ -15,7 +15,7 @@
     },
 
     // Add the IDs of extensions you want installed when the container is created.
-    "extensions": ["hashicorp.terraform","erd0s.terraform-autocomplete"],
+    "extensions": ["hashicorp.terraform","erd0s.terraform-autocomplete","vscoss.vscode-ansible"],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],

@@ -10,9 +10,7 @@ resource "aws_vpc" "equalexperts" {
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
-    "Name"        = "ee_vpc"
-    "Owner"       = "equal_experts"
-    "TTL"         = ""
-    "Description" = ""
+    "Name"  = "ee_vpc"
+    "Owner" = "equal_experts"
   }
 }

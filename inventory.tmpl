@@ -1,0 +1,13 @@
+localhost              ansible_connection=local
+
+[bastion]
+${bastion-dns} ansible_host=${bastion-ip} ansible_connection=ssh ansible_user=${ssh_user_name} ansible_port=22 # ${bastion-id}
+
+[servers]
+${private-dns} ansible_host=${private-ip} ansible_connection=ssh ansible_user=${ssh_user_name} ansible_port=22 # ${private-id}
+
+[bastion:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[servers:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'

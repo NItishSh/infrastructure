@@ -37,3 +37,11 @@ variable "private_key_path" {
   type    = string
   default = "/root/.ssh/id_rsa"
 }
+variable "ssh_user_name" {
+  type    = string
+  default = "ec2-user"
+}
+variable "ssh_time_out" {
+  type    = string
+  default = "1m"
+}

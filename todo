@@ -1,5 +1,9 @@
 install ansible                                             -   done
-install jenkins role
-create a dynamic inventory
-copy ansible playbook then run them 
-better ssh key management by may be using Session manager
+create a dynamic inventory                                  -   done
+install jenkins role                                        -   done
+copy ansible playbook then run                              -   done 
+better ssh key management by may be using Session manager   -
+
+jenkins pipeline for java application
+    *build java application
+    *

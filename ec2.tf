@@ -24,7 +24,6 @@ resource "aws_instance" "public_server" {
   instance_type = var.web_server_size
   subnet_id     = aws_subnet.public_subnet.id
   key_name      = aws_key_pair.generated_key.key_name
-  # user_data       = file("install_ansible.sh")
   # availability_zone = var.az
   security_groups = [aws_security_group.web.id, aws_security_group.jenkins.id, aws_security_group.puppet.id, aws_security_group.bastion.id, aws_security_group.ssh.id]
   tags = {

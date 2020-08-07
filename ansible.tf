@@ -41,10 +41,14 @@ resource "null_resource" "dev-hosts" {
       timeout     = var.ssh_time_out
     }
     inline = [
+      "sudo yum install python3 -y",
+      # "sudo ln -sf /usr/bin/python3 /usr/bin/python",
+      # "sudo ln -sf /usr/bin/pip3 /usr/bin/pip",
+      "python --version",
+      "python3 --version",
       "sudo amazon-linux-extras install ansible2 -y",
       "ansible-galaxy install geerlingguy.java",
       "ansible-galaxy install geerlingguy.jenkins",
-      "ansible-galaxy install geerlingguy.docker",
       "echo '${data.template_file.ansible_inventory.rendered}' > /home/ec2-user/.ansible/hosts"
     ]
   }
@@ -57,7 +61,8 @@ resource "null_resource" "dev-hosts" {
       timeout     = var.ssh_time_out
     }
     inline = [
-      "ansible-playbook /home/ec2-user/.ansible/playbook-connectivity.yaml -i /home/ec2-user/.ansible/hosts"
+      "ansible-playbook /home/ec2-user/.ansible/playbook-connectivity.yaml -i /home/ec2-user/.ansible/hosts",
+      # "ansible-playbook /home/ec2-user/.ansible/python/playbook-python.yaml -i /home/ec2-user/.ansible/hosts"
     ]
   }
   provisioner "remote-exec" {

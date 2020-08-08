@@ -60,43 +60,6 @@ resource "aws_security_group" "jenkins" {
     Name = "ee_jenkins_nsg"
   }
 }
-resource "aws_security_group" "puppet" {
-  name        = "puppet"
-  description = "Allow puppet inbound traffic"
-  vpc_id      = aws_vpc.equalexperts.id
-
-  ingress {
-    description = "https"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = [aws_vpc.equalexperts.cidr_block]
-  }
-  ingress {
-    description = "puppet enterprise"
-    from_port   = 8140
-    to_port     = 8140
-    protocol    = "tcp"
-    cidr_blocks = [aws_vpc.equalexperts.cidr_block]
-  }
-  ingress {
-    description = "puppet enterprise orchestration"
-    from_port   = 61613
-    to_port     = 61613
-    protocol    = "tcp"
-    cidr_blocks = [aws_vpc.equalexperts.cidr_block]
-  }
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "ee_puppet_nsg"
-  }
-}
 resource "aws_security_group" "ssh" {
   name        = "ssh"
   description = "Allow ssh inbound traffic"

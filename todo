@@ -2,8 +2,10 @@ install ansible                                             -   done
 create a dynamic inventory                                  -   done
 install jenkins role                                        -   done
 copy ansible playbook then run                              -   done 
-better ssh key management by may be using Session manager   -
+better ssh key management by may be using Session manager   - 
 
 jenkins pipeline for java application
-    *build java application
-    *
+    * build java application
+    * build docker image
+    * docker push csnitsh/spring-petclinic:tagname
+    * trigger deployment 

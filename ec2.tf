@@ -25,7 +25,7 @@ resource "aws_instance" "public_server" {
   subnet_id     = aws_subnet.public_subnet.id
   key_name      = aws_key_pair.generated_key.key_name
   # availability_zone = var.az
-  security_groups = [aws_security_group.web.id, aws_security_group.jenkins.id, aws_security_group.puppet.id, aws_security_group.bastion.id, aws_security_group.ssh.id]
+  security_groups = [aws_security_group.web.id, aws_security_group.jenkins.id, aws_security_group.bastion.id, aws_security_group.ssh.id]
   tags = {
     "Name"  = "ee_web_server"
     "Owner" = "equal_experts"
@@ -75,7 +75,7 @@ resource "aws_instance" "private_server" {
   subnet_id     = aws_subnet.private_subnet.id
   key_name      = aws_key_pair.generated_key.key_name
   # availability_zone = var.az
-  security_groups = [aws_security_group.jenkins.id, aws_security_group.puppet.id, aws_security_group.ssh.id]
+  security_groups = [aws_security_group.jenkins.id, aws_security_group.ssh.id]
   tags = {
     "Name"  = "ee_app_server"
     "Owner" = "equal_experts"

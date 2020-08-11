@@ -62,7 +62,6 @@ resource "null_resource" "dev-hosts" {
     }
     inline = [
       "ansible-playbook /home/ec2-user/.ansible/playbook-connectivity.yaml -i /home/ec2-user/.ansible/hosts",
-      # "ansible-playbook /home/ec2-user/.ansible/python/playbook-python.yaml -i /home/ec2-user/.ansible/hosts"
     ]
   }
   provisioner "remote-exec" {

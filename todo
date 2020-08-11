@@ -4,6 +4,7 @@ install jenkins role                                        -   done
 copy ansible playbook then run                              -   done 
 better ssh key management by may be using Session manager   - 
 
+https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/demos
 jenkins pipeline for java application
     * build java application
     * build docker image

@@ -1,0 +1,9 @@
+- name: 'install git jenkins server'
+  become: yes
+  hosts: localhost
+  tasks:
+    - name : 'install git'
+      yum : 
+        name: git
+        state: latest
+        update_cache: yes

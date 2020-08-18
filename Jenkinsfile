@@ -11,22 +11,22 @@ pipeline {
     stages {
         stage('clone code') {
             steps {
-                sh 'git clone https://github.com/spring-projects/spring-petclinic.git'
+                sh 'rm -rf spring-petclinic && git clone https://github.com/spring-projects/spring-petclinic.git'
             }
         }
         stage ('unit test'){
             steps{
-                sh 'unit test place holder'
+                sh 'echo "unit test place holder"'
             }
         }
         stage ('integration tests'){
             steps{
-                sh 'integration test  place holder'
+                sh 'echo "integration test  place holder"'
             }
         }
         stage ('code analysis'){
             steps{
-                sh 'code analysis place holder'
+                sh 'echo "code analysis place holder"'
             }
         }
 

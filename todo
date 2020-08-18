@@ -4,6 +4,8 @@ install jenkins role                                        -   done
 copy ansible playbook then run                              -   done 
 better ssh key management by may be using Session manager   - 
 
+version for the terraform provider and the jenkins plugins and also ansible role 
+
 https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/demos
 jenkins pipeline for java application
     * build java application

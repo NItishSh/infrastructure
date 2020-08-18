@@ -15,7 +15,7 @@ data "aws_ami" "amazon-linux-2-ami" {
     values = ["x86_64"]
   }
 }
-resource "aws_key_pair" "generated_key" {
+resource "aws_key_pair" "local_key" {
   key_name   = var.key_name
   public_key = file(var.public_key_path)
 }
@@ -23,7 +23,7 @@ resource "aws_instance" "public_server" {
   ami           = data.aws_ami.amazon-linux-2-ami.id
   instance_type = var.web_server_size
   subnet_id     = aws_subnet.public_subnet.id
-  key_name      = aws_key_pair.generated_key.key_name
+  key_name      = aws_key_pair.local_key.key_name
   # availability_zone = var.az
   security_groups = [aws_security_group.web.id, aws_security_group.jenkins.id, aws_security_group.bastion.id, aws_security_group.ssh.id]
   tags = {
@@ -73,7 +73,7 @@ resource "aws_instance" "private_server" {
   ami           = data.aws_ami.amazon-linux-2-ami.id
   instance_type = var.web_server_size
   subnet_id     = aws_subnet.private_subnet.id
-  key_name      = aws_key_pair.generated_key.key_name
+  key_name      = aws_key_pair.local_key.key_name
   # availability_zone = var.az
   security_groups = [aws_security_group.jenkins.id, aws_security_group.ssh.id]
   tags = {

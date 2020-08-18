@@ -1,0 +1,10 @@
+- name: 'install petclinic docker image on the private server'
+  hosts: servers
+  vars:
+    petclinic_version: lola
+  tasks:
+    - name : 'stop the old container'
+      shell : 'docker rm --force petclinic'
+    - name : 'install docker image'
+      shell : 'docker run -d -p 8080:8080 --name petclinic csnitsh/spring-petclinic:$version' #TODO: inject version to ansible playbook
+
